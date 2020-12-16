@@ -5,10 +5,29 @@ services:
      volumes:
        - db_dados:/var/lib/mysql
      restart: always
+     #ports: para testa diretamente na maquina host
+     # - 3306:3306
      environment:
        MYSQL_ROOT_PASSWORD: my-secret-pw
        MYSQL_DATABASE: stefanini
        MYSQL_USER: stefanini
        MYSQL_PASSWORD: stefanini
+   adminer:
+     depends_on:
+       - db
+     image: adminer:latest
+     restart: always
+     ports:
+       - 8080:8080
+   wordpress_aplic:
+    image: wordpress:latest 
+    ports: 
+      - 80:80
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: stefanini
+      WORDPRESS_DB_PASSWORD: stefanini
+      WORDPRESS_DB_NAME: stefanini
 volumes:
      db_dados: {}
