@@ -1,0 +1,14 @@
+version: "3"
+services:
+   db:
+     image: mysql:latest
+     volumes:
+       - db_dados:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: my-secret-pw
+       MYSQL_DATABASE: stefanini
+       MYSQL_USER: stefanini
+       MYSQL_PASSWORD: stefanini
+volumes:
+     db_dados: {}
