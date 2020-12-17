@@ -1,0 +1,15 @@
+#alternativa ao Dockerfile do docker-mysql
+version: "3"
+services: 
+   db:
+     image: mysql:latest
+     volumes:
+       - db_dados:/docker-entrypoint-initdb.d/
+     #command:  permiti executar códigos no container
+     ports:
+      - 3306:3306
+     environment:
+       MYSQL_ROOT_PASSWORD: my-secret-pw
+       MYSQL_DATABASE: stefanini
+       MYSQL_USER: stefanini
+       MYSQL_PASSWORD: stefanini

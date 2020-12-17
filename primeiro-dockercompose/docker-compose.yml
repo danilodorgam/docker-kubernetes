@@ -29,5 +29,8 @@ services:
       WORDPRESS_DB_USER: stefanini
       WORDPRESS_DB_PASSWORD: stefanini
       WORDPRESS_DB_NAME: stefanini
+    volumes:
+      - wp_dados:var/www/html
 volumes:
      db_dados: {}
+     wp_dados: {}
