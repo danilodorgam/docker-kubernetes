@@ -1,0 +1,11 @@
+version: "3"
+services:
+   db:
+     build: .
+     environment:
+       MYSQL_ROOT_PASSWORD: my-secret-pw
+       MYSQL_DATABASE: stefanini
+       MYSQL_USER: stefanini
+       MYSQL_PASSWORD: stefanini
+     ports:
+       - 3306:3306
