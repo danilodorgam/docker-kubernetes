@@ -1,2 +1,6 @@
 configurar os arquivos para ter no final 
-a seguinte configuração= Mysql + adminer + WordPress
+a seguinte configuração= 
+Mysql + 
+adminer + 
+WordPress +
+senha usando secrets
