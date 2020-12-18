@@ -5,17 +5,17 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: mysql
+      app: mysql-deployment
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: mysql
+        app: mysql-deployment
     spec:
       containers:
-      - image: mysql
-        name: mysql
+      - image: mysql:5.6
+        name: mysql-image
         resources:
           requests:
             memory: "512Mi"
@@ -37,3 +37,4 @@ spec:
       - name: mysql-storage
         persistentVolumeClaim:
           claimName: mysql-pvc
+
