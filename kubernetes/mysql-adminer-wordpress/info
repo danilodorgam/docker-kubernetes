@@ -3,4 +3,5 @@ a seguinte configuração=
 Mysql + 
 adminer + 
 WordPress +
-senha usando secrets
+senha usando secrets+
+HPA

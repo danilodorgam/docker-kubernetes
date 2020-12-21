@@ -1,0 +1,16 @@
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: wordpress-hpa
+spec:
+ minReplicas: 2
+ maxReplicas: 20
+ scaleTargetRef: 
+    apiVersion: app/v1
+    kind: Deployment
+    name: wordpress-deployment
+ metrics:
+  - type: Resource
+    resource: 
+      name: cpu
+      targetAverageUtilization: 15
