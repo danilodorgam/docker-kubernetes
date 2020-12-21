@@ -13,9 +13,9 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: web
+              name: wordpress-service
               port:
-                number: 8080
+                number: 80
         - path: /web2
           pathType: Prefix
           backend:
@@ -23,4 +23,11 @@ spec:
               name: web2
               port:
                 number: 8080
+        - path: /wordpress #com erro de redirect
+          pathType: Prefix
+          backend:
+            service:
+              name: wordpress-service
+              port:
+                number: 80
     
