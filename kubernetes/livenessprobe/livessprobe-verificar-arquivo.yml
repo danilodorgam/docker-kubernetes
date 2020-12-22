@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: exemplo-livenessprobl
+  labels:
+    objetivo: executar-verificacao-por-aquivo
+spec:
+  containers:
+    - name: liveness
+      image: k8s.gcr.io/busybox
+      args: 
+       - /bin/sh
+       - -c
+       - touch /tmp/verificar; speed 30; rm -rf /tmp/verificar; sleep 600
+      livenessProbe:
+          exec:
+            command:
+              - cat
+              - /tmp/verificar
+          initialDelaySeconds: 5
+          periodSeconds: 5

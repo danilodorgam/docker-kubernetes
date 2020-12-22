@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: readiness-exemplo
+  labels:
+    app: exemplo-readiness
+spec:
+  containers:
+    - name: exemplo-readiness
+      image: k8s.gcr.io/goproxy:0.1
+      ports:
+       - containerPort: 8080
+      readinessProbe:
+          tcpSocket:
+             port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20

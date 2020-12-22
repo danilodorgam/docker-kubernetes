@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: exemplo-startup
+spec:
+  containers:
+    - name: exemplo-startup
+      image: k8s.gcr.io/liveness
+      args:
+       - /server
+      startupProbe:
+        httpGet:
+          path: /healthz
+          port: 8080
+        failureThreshold: 30
+        periodSeconds: 10
