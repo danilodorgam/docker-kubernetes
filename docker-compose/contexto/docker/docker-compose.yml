@@ -1,0 +1,13 @@
+version: "3"
+services:
+   db:
+     build: 
+      context: ../sql
+      dockerfile: ./MeuDockerfile.dev
+     environment:
+       MYSQL_ROOT_PASSWORD: my-secret-pw
+       MYSQL_DATABASE: stefanini
+       MYSQL_USER: stefanini
+       MYSQL_PASSWORD: stefanini
+     ports:
+       - 3306:3306
