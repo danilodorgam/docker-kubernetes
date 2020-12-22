@@ -27,10 +27,13 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
               secretKeyRef:
-                name: mysql-user-secret
+                name: mysql
                 key: password
         - name: MYSQL_DATABASE
-          value: stefanini
+          valueFrom:
+              secretKeyRef:
+                name: mysql
+                key: tabela
         ports:
         - containerPort: 3306
           name: mysql
